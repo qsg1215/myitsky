@@ -15,8 +15,7 @@ install:
   - yarn docs:build
 
 script:
-  - chmod u+x deploy.sh
-  - bash ./deploy.sh
+  -  ./deploy.sh
 
 # deploy:
 #   provider: pages
