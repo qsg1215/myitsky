@@ -1,15 +1,28 @@
 language: node_js
 node_js:
-  - lts/*
+  - stable
+
+cache:
+  directories:
+    - "node_modules"
+
+branches:
+  only:
+  - dev
+
 install:
-  - yarn install # npm ci
+  - npm install
+  - npm run build
+
 script:
-  - yarn docs:build # npm run docs:build
-deploy:
-  provider: pages
-  skip_cleanup: true
-  local_dir: docs/.vuepress/dist
-  github_token: 096b75887a73b26ebd4f3b09da94de87fa42de77 # 在 GitHub 中生成，用于允许 Travis 向你的仓库推送代码。在 Travis 的项目设置页面进行配置，设置为 secure variable
-  keep_history: true
-  on:
-    branch: master
+  - chmod u+x deploy.sh
+  - bash ./deploy.sh
+
+# deploy:
+#   provider: pages
+#   skip-cleanup: true
+#   github-token: $GITHUB_ACCESS_TOKEN  # Set in travis-ci.org dashboard, marked secure https://docs.travis-ci.com/user/deployment/pages/#Setting-the-GitHub-token
+#   target-branch: gh-pages
+#   local-dir: .vuepress/dist
+#   on:
+branch: dev
