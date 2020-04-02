@@ -11,8 +11,8 @@ branches:
   - dev
 
 install:
-  - npm install
-  - npm run build
+  - yarn install
+  - yarn docs:build
 
 script:
   - chmod u+x deploy.sh
