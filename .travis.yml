@@ -8,7 +8,7 @@ cache:
 
 branches:
   only:
-  - dev
+  - master
 
 install:
   - yarn install
@@ -25,4 +25,4 @@ script:
 #   target-branch: gh-pages
 #   local-dir: .vuepress/dist
 #   on:
-branch: dev
+branch: master
