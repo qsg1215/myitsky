@@ -8,7 +8,7 @@ module.exports = {
           }
         }
     },
-    base: '/',
+    base: '/myitsky/',
     markdown: {
         lineNumbers: true
     },
