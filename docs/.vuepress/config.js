@@ -41,8 +41,6 @@ module.exports = {
       //后端
       '/end/php/': utils.genSidebar('php', filehelper.getFileName(rootpath+"/end/php/"), false),
       
-
-      '/about/': utils.genSidebar('关于', filehelper.getFileName(rootpath), false),
     },
     nextLinks: false,
     // 默认值是 true 。设置为 false 来禁用所有页面的 上一篇 链接

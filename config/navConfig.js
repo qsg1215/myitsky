@@ -54,7 +54,7 @@ module.exports = [
     },
     {
         text: '关于我',
-        link:'/about'
+        link:'/about/'
       }
   ];
   
