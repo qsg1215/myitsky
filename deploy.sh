@@ -11,6 +11,7 @@ set -e
 # cd docs/.vuepress/dist
 cd docs/.vuepress/dist
 
+echo 'blog.myitsky.com' > CNAME
 
 # 如果是发布到自定义域名
 # echo 'www.example.com' > CNAME
