@@ -7,6 +7,7 @@ module.exports = [
             {text: 'CSS', link: '/front/css/' },
             { text: 'javaScript', link: '/front/js/' },
             { text: 'browser', link: '/front/browser/'},
+            { text: 'other', link: '/front/other/'},
           ]
       },
       {

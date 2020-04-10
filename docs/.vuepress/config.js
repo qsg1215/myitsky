@@ -8,6 +8,9 @@ const filehelper = require('./utils/initPage.js');
 module.exports = {
   title: '大前端',
   description: '前端知识体系建设',
+  markdown: {
+    lineNumbers: true
+  },
   configureWebpack: {
     resolve: {
       alias: {
@@ -36,6 +39,7 @@ module.exports = {
       '/front/html/': utils.genSidebar('HTML', filehelper.getFileName(rootpath+"/front/html/"), false),
       '/front/js/': utils.genSidebar('javaScript', filehelper.getFileName(rootpath + "/front/js/"), false),
       '/front/browser/': utils.genSidebar('浏览器', filehelper.getFileName(rootpath + "/front/browser/"), false),
+      '/front/other/': utils.genSidebar('随笔', filehelper.getFileName(rootpath + "/front/other/"), false),
 
 
       //后端
