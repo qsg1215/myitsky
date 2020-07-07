@@ -8,6 +8,7 @@ module.exports = [
             { text: 'javaScript', link: '/front/js/' },
             { text: 'browser', link: '/front/browser/'},
             { text: 'other', link: '/front/other/'},
+            { text: 'react', link: '/front/react/'},
           ]
       },
       {

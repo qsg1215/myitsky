@@ -591,7 +591,7 @@ http.getData()
 
 
 
-### 方法装饰器
+### 方法装饰器1
 
 ``` typeScript
 function get(params: any) {
@@ -631,12 +631,184 @@ http.run()
 
 
 
+### 方法装饰器2(修改修饰方法)
+
+``` typeScript
+function get(params: any) {
+    return function (target: any, methodsName: string, desc: any) {
+        //扩展实例的原型属性和方法
+        target.apiUrl = 'xxxxx';
+        target.run = function () {
+            console.log('run');
+            
+        };
+        
+        //保存当前的方法
+        var oldMethods = desc.value;
+        desc.value = function (...args: any[]) {
+            args = args.map(i => String(i) + params);
+            oldMethods.apply(this, args); //方法冒充
+        }
+
+
+        
+    }
+
+}
+
+class HttpClient {
+
+    public url: string | undefined;
+
+    constructor() {
+        
+    }
+
+    @get('http:///www.myitsky.com')
+    getData(...args: any[]) {
+        console.log(args);
+        
+        console.log('我是getData里面的方法');
+    }
+ 
+};
+
+var http = new HttpClient();
+http.getData(123,'xxxx')
+
+
+
+```
+
+
+### 参数装饰器
+
+``` typeScript
+function logParams(params: any) {
+    return function (target: any, methodName: string, paramsIndex: any) {
+        console.log(params);
+        
+        console.log(target);
+        console.log(methodName);
+        console.log(paramsIndex);
+    }
+
+}
+
+
+class HttpClient {
+
+    public url: string | undefined;
+
+    constructor() {
+
+    };
+
+   
+    getData(@logParams('uuid') uuid: any,@logParams('otherParams') other?: any) {
+        
+        console.log(uuid);
+        console.log(other);
+         
+
+    }
+};
+
+var http = new HttpClient();
+http.getData(123456,'other')
+
+
+
+```
+
+### 装饰器执行顺序
+
+#### 属性 >> 方法 >> 方法参数 >> 类 同类型装饰器, 先执行后面的装饰器
+
+``` typeScript
+function logClass1(params: any) {
+    return function (target: any) {
+        console.log('类装饰器1');
+        
+    }
+}
+
+function logClass2(params: any) {
+    return function (target: any) {
+        console.log('类装饰器2');
+        
+    }
+}
+
+function logAttribute(params?: string) {
+    return function (target: any, attrName: any) {
+        console.log('属性装饰器');
+        
+    }
+}
+
+function logMethod(params: any) {
+    return function (target: any, methodName: string, desc: any) {
+        console.log('方法装饰器');
+        
+    }
+}
+
+function logParams1(params: any) {
+    return function (target: any, methodName: string, paramsIndex: number) {
+        console.log('参数装饰器1');
+        
+    }
+}
+function logParams2(params: any) {
+    return function (target: any, methodName: string, paramsIndex: number) {
+        console.log('参数装饰器2');
+        
+    }
+}
+
+@logClass1('http://www.myitsky.com')
+@logClass2('xxxx')
+class HttpClient {
+
+
+    @logAttribute()
+    public apiUrl: string | undefined;
+
+    constructor() {
+
+    };
+    @logMethod('xx')
+    getData() {
+
+    };
+
+    setData(@logParams1() params1:any,@logParams2() params2:any) {
+        
+    };
+};
+
+var http = new HttpClient();
+
+http.getData();
+
+
+```
+
 ### 接口的扩展(又叫接口的继承)
 
 ``` typeScript
 
 
 ```
+
+### 接口的扩展(又叫接口的继承)
+
+``` typeScript
+
+
+```
+
 
 
 

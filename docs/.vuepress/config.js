@@ -39,6 +39,7 @@ module.exports = {
       '/front/html/': utils.genSidebar('HTML', filehelper.getFileName(rootpath+"/front/html/"), false),
       '/front/js/': utils.genSidebar('javaScript', filehelper.getFileName(rootpath + "/front/js/"), false),
       '/front/browser/': utils.genSidebar('浏览器', filehelper.getFileName(rootpath + "/front/browser/"), false),
+      '/front/react/': utils.genSidebar('react', filehelper.getFileName(rootpath + "/front/react/"), false),
       '/front/other/': utils.genSidebar('随笔', filehelper.getFileName(rootpath + "/front/other/"), false),
 
 
