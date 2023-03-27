@@ -1,6 +1,6 @@
 # git常见操作
 
-清空master 分支的全部提交记录
+清空master分支的全部提交记录
 
 ``` sh
 git checkout --orphan latest_branch;
