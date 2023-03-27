@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "vuepress": "^1.4.0"
+  },
+  "scripts": {
+    "start": "vuepress dev docs",
+    "publish": "bash  publish.sh"
+  }
+}
