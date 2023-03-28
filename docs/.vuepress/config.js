@@ -44,6 +44,9 @@ module.exports = {
 
       //后端
       '/end/php/': utils.genSidebar('php', filehelper.getFileName(rootpath + "/end/php/"), false),
+      '/end/java/': utils.genSidebar('php', filehelper.getFileName(rootpath + "/end/java/"), false),
+      '/end/node/': utils.genSidebar('php', filehelper.getFileName(rootpath + "/end/node/"), false),
+      '/end/python/': utils.genSidebar('python', filehelper.getFileName(rootpath + "/end/python/"), false),
 
     },
     nextLinks: false,
