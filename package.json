@@ -4,6 +4,6 @@
   },
   "scripts": {
     "start": "vuepress dev docs",
-    "publish": "bash  publish.sh"
+    "docs:build":"vuepress build docs"
   }
 }
