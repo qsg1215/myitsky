@@ -40,17 +40,9 @@ module.exports = {
       '/front/browser/': utils.genSidebar('浏览器', filehelper.getFileName(rootpath + "/front/browser/"), false),
       '/front/react/': utils.genSidebar('react', filehelper.getFileName(rootpath + "/front/react/"), false),
       '/front/other/': utils.genSidebar('随笔', filehelper.getFileName(rootpath + "/front/other/"), false),
-
-
-      //后端
-      '/end/php/': utils.genSidebar('php', filehelper.getFileName(rootpath + "/end/php/"), false),
-      '/end/java/': utils.genSidebar('php', filehelper.getFileName(rootpath + "/end/java/"), false),
-      '/end/node/': utils.genSidebar('php', filehelper.getFileName(rootpath + "/end/node/"), false),
-      '/end/python/': utils.genSidebar('python', filehelper.getFileName(rootpath + "/end/python/"), false),
-
     },
-    nextLinks: false,
+    nextLinks: true,
     // 默认值是 true 。设置为 false 来禁用所有页面的 上一篇 链接
-    prevLinks: false
+    prevLinks: true
   }
 }
