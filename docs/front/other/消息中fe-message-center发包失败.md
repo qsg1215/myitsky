@@ -1,0 +1,23 @@
+# 消息中心（fe-message-center）发包失败
+
+报错现象 :   不能识别< 符号，  umi.xxxx.js返回了一段html 代码
+
+根本原因： 
+
+ 入口index.html 中引用的入口文件 umi.xxxxx.js 不存在， 然后根据单页应用的nginx 配置规则， 找不到文件就会直接返回html, 所以一个 js 文件请求最后得到的确是一个html 代码， 导致运行出错， 无法渲染页面， 挂在节点
+
+ 入口index.html 中引用的入口文件 umi.xxxxx.js 不存在的原因是index.html 还是使用的上一版本， 每个半个的入口文件umi.js 的hash 值是不一样的， 为么index.html 文件么有更新， 是因为， 第一没有hash值， 第二个是运维平台在同步的时候， 没有内容检验， 因为每次打包生成的index.html 文件大小都是一样， 时间也是一样的， 所以运维平台的同步命令不会同步index.html 文件的变更
+
+解决方案： 
+
+1.  下载的打包文件里面的内容文件要是最新的， 需要改node pack 命令的源代码， 代码里面写死了创建文件的日期 mtime: new Date('1985-10-26T08:15:00.000Z') ， 注释掉日期就可以了
+    
+
+/node/v16.20.2/lib/node\_modules/npm/node\_modules/pacote/lib/util/tar-create-options.js  28行
+
+2： 使用docker 部署完成npm pack 流程
+
+3.  同步命令增加-c 参数 ， 追加内容校验
+    
+
+![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/vBPlNYMWbVgXOdG8/img/addc0d31-396e-42e0-a946-4d8c6cefd775.png)
