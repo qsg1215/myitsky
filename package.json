@@ -4,7 +4,7 @@
   },
   "scripts": {
     "start": "vuepress dev docs",
-    "build": "vuepress build docs"
+    "docs:build": "vuepress build docs"
   },
   "dependencies": {
     "vuepress-plugin-fulltext-search": "^2.2.1"
