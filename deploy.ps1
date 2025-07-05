@@ -19,6 +19,7 @@ git add .
 git commit -m "deploy $(Get-Date -Format "yyyy-MM-dd HH:mm:ss")"
 
 git push -f origin gh-pages
-Set-Location .
+# 回到根目录
+Set-Location ../../../
 
 Write-Host "done"
