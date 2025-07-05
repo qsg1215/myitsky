@@ -81,8 +81,6 @@
 ```sh
 npm install zod
 yarn add zod          # yarn
-bun add zod           # bun
-pnpm add zod          # pnpm
 ```
 
 
