@@ -1,6 +1,7 @@
 
 #  zod使用文档总结汇总
 
+#  API概览
 - [安装](#安装)
 - [基本用法](#基本用法)
 - [定义模式](#定义模式)
@@ -56,23 +57,6 @@
 - [类型推断](#type-inference)
 - [Errors](#errors)
 
-# 什么是 Zod
-
-Zod 是一个以 TypeScript 为首的模式声明和验证库。我使用术语 "模式 "来广义地指任何数据类型，从简单的 `字符串` 到复杂的嵌套对象。
-
-Zod 被设计成对开发者尽可能友好。其目的是消除重复的类型声明。使用 Zod，你只需声明 _一次_ 验证器，Zod 就会自动推断出静态 TypeScript 类型。它很容易将较简单的类型组成复杂的数据结构。
-
-其他一些重要方面:
-
-- 零依赖
-- 可以工作在浏览器和 Node.js
-- 小巧: 8kb minified + zipped
-- 不可变: 方法(即 `.optional()` )返回一个新的实例
-- 简洁的、可链式调用的接口
-- 功能性方法: [解析，不验证](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/)
-- 也可用于普通的 JavaScript! 你不需要使用 TypeScript
-
-
 
 # 安装
 
@@ -92,7 +76,7 @@ Zod 被设计成对开发者尽可能友好。其目的是消除重复的类型�
 }
 ```
 
-### 从`npm`(Node/Bun)安装
+### 从`npm`安装
 
 ```sh
 npm install zod
